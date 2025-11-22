@@ -12,7 +12,7 @@ parent = os.path.abspath('')
 if not os.path.exists(os.path.join(parent, 'outputs')):
     os.mkdir(os.path.join(parent, 'outputs'))
 all_logs = [i for i in os.listdir(os.path.join(parent, 'outputs')) if 'log' in i]
-os.mkdir(os.path.join(parent, 'outputs', f'run_{len(all_logs)+1}'))
+os.makedirs(os.path.join(parent, 'outputs', f'run_{len(all_logs)+1}'), exist_ok=True)
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
